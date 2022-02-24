@@ -1,0 +1,54 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication4
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            string n;
+            string stringolvasas;
+            bool sikeresolvasas;
+
+            do
+            {
+
+                Console.WriteLine("Írj be egy számot 1 és 10 között");
+
+                stringolvasas = Console.ReadLine();
+
+
+                sikeresolvasas = Int32.TryParse(stringolvasas, out n);
+                if (!sikeresolvasas)
+                {
+                    Console.WriteLine("ez nem szám");
+                }
+
+            } while (!sikeresolvasas || n<1 || n<10);
+
+
+            Console.WriteLine("n="+n);
+
+            int szamol = 0;
+            int kezdoszam = 10;
+
+            int x, y;
+            Relativprimek(x,y);
+
+
+        }
+
+        private static void Relativprimek(int x, int y)
+        {
+            
+
+
+
+        }
+    }
+}
