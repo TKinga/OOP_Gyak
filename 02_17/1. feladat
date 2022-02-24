@@ -1,0 +1,107 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            int alsohatar = 1, felsohatar = 100;
+            int darab = 0;
+
+
+            Console.WriteLine("Ikerprímek");
+
+            for (int i = alsohatar; i <felsohatar; i++)
+            {
+
+
+                bool i_prime = PrimszamE(i);
+
+                for (int j = i+1; j <= felsohatar; j++)
+                {
+                    if (i_prime && PrimszamE(j) && j-1==2)
+                    {
+                        darab++;
+                        Console.WriteLine(i+", "+j);
+                    }
+                }
+
+            }
+
+            Console.WriteLine(darab+"darab ikerpár van");
+
+
+
+
+
+            Console.ReadKey();
+
+
+        }
+
+        public static bool PrimszamE(int szam)
+        {
+
+
+            if (szam<2)
+            {
+                return false;
+            }
+
+
+            for (int i = 2; i <=szam/2; i++)
+            {
+                if (szam%i==0)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+
+        }
+
+
+
+
+        //logiaki típus használata
+
+
+        public static bool PrimszamE2(int szam)
+
+        {
+
+            bool talalt = false;
+
+            if (szam<2)
+            {
+
+
+                return false;
+
+            }
+
+            for (int i = 2; i <= szam/2; i++)
+            {
+
+                if (szam%i==0)
+                {
+                    talalt = true;
+                    break;
+                }
+            }
+
+            return !talalt;
+
+        }
+
+
+
+    }
+}
