@@ -1,0 +1,84 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication1
+{
+    class Class1
+    {
+    }
+}
+namespace Alkalmazott
+{
+    class Alkalmazott0
+    {
+
+       private string nev;
+       private long fizetes;
+
+       public void SetNev(string nev)  //a setternek nincs visszatérési értéke
+        {
+            //this.nev  -- az adattagra hivatkozom
+            this.nev = nev;
+        }
+
+        public string GetNev() //gettetnek van visszatérési értéke
+        {
+            return nev;
+
+        }
+
+        public void SetFizetes(long fizetes)
+        {
+            this.fizetes = fizetes;
+        }
+
+        public long GetFizetes()
+        {
+            return fizetes;
+        }
+
+        public void FizetesNovelese(long novekmeny)
+        {
+            fizetes += novekmeny;
+        }
+
+        public string AlkalmazottKiir()
+        {
+            return "Nev: " + nev + ", fizetese: " + fizetes + " Ft";
+        }
+
+
+        public bool FizetesTartomanybanVanE(int alsohatar, int felsohatar)
+        {
+            if (fizetes>=alsohatar && fizetes<=felsohatar)
+            {
+                return true;
+            }
+
+
+            else
+            {
+                return false;
+            }
+     
+        }
+
+
+
+        public long FizetendoAdo()
+        {
+            return (long)(fizetes * 0.16);
+        }
+
+
+        public bool FizetesNagyobbMint(Alkalmazott0 masikAlkalmazott)
+        {
+            return fizetes > masikAlkalmazott.fizetes;
+        }
+
+    }
+}
+
