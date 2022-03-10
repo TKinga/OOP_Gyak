@@ -1,2 +1,102 @@
 
-bbbbb
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    class Teglalap
+    {
+      //1. feladat
+        private int aOldal;   //propfull és tabtab :D
+
+        private int bOldal;
+
+        public int BOldal
+        {
+            get { return bOldal; }
+            set { bOldal = value; }
+        }
+
+
+
+        public int AOldal
+        {
+            get { return aOldal; }
+            set { aOldal = value; }
+        }
+
+
+
+        public Teglalap():this(10)  //ct megjelenik a ctor és tab tab aztán legenerálja
+        {
+            Console.WriteLine("pareméter nelküli konstruktor");
+        }
+
+
+        public Teglalap(int aOldal):this(aOldal,aOldal)
+        {
+            Console.WriteLine("egy paraméteres konstruktor");
+        }
+
+        public Teglalap(int aOldal, int bOldal)  //kijelölöm fent a kért private int oldalt és legeneráltatom a konstruktort (
+        {
+            this.aOldal = aOldal;
+            this.bOldal = bOldal;
+            Console.WriteLine("két paraméteres konstruktor");
+        }
+
+
+        internal int Terulet()
+        {
+
+            return aOldal * bOldal;
+
+
+        }
+
+        public override string ToString()
+        {
+           
+            //return $"{aOldal}, {bOldal}: {Terulet()}";
+
+            return aOldal + ", " + bOldal + ": " + Terulet();
+
+        }
+
+
+
+        public void SetTeglalap(int aOldal, int bOldal)
+        {
+            this.aOldal = aOldal;
+            this.bOldal = bOldal;
+        }
+
+        public void SetTeglalap(int oldal)
+        {
+            SetTeglalap(oldal, oldal);
+        }
+
+
+
+        public bool NagyobbTeruletMint(Teglalap masikTeglalap)
+
+        {
+            return Terulet() > masikTeglalap.Terulet();
+        }
+
+        public bool OldalakMegegyeznek(Teglalap masikTeglalap)
+        {
+            return (aOldal == masikTeglalap.aOldal && bOldal == masikTeglalap.bOldal) || (aOldal == masikTeglalap.bOldal && bOldal == masikTeglalap.aOldal);
+        }
+        
+        
+
+        //2. feladat
+
+
+
+    }
+}
