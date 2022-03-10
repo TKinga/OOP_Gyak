@@ -1,1 +1,149 @@
-bbbbb
+using System;
+
+namespace ConsoleApp1
+{
+
+    class MyClass
+    {
+
+    }
+
+
+
+    class Program
+    {
+
+
+        static void Main(string[] args)
+        {
+            //1.feladat
+            Program program = new Program();
+            MyClass objektum = new MyClass();
+
+
+
+            Console.WriteLine(objektum);
+            Console.WriteLine(objektum.ToString());
+
+            Console.WriteLine("Téglalapok");
+
+            Teglalap teglalap = new Teglalap(1, 2);
+
+            int terulet = teglalap.Terulet();  //legeneráltatattam az osztályt top-down módszerrel és autómatikusan létrehpozta a teglalap classban
+
+
+
+       
+            Teglalap a = new Teglalap(1, 2);
+            Teglalap b = new Teglalap(3, 4);
+            Teglalap c = a;
+
+
+            Console.WriteLine(a);
+            //Console.WriteLine(a.ToString());
+            Console.WriteLine(b);
+            Console.WriteLine(c);
+
+            a.SetTeglalap(5, 6);
+            Console.WriteLine(a);
+            Console.WriteLine(b);
+            Console.WriteLine(c);
+
+            c.BOldal = 3;
+            c.AOldal = 4;
+            Console.WriteLine(a);
+            Console.WriteLine(b);
+            Console.WriteLine(c);
+
+
+            Console.WriteLine(a==b);
+            Console.WriteLine(a==c);
+            Console.WriteLine(a.OldalakMegegyeznek(b));
+
+
+
+
+            //2.feladat
+
+            Teglalap[] teglalapok = new Teglalap[10];
+            Random veletlen = new Random();
+
+            for (int i = 0; i < teglalapok.Length; i++)
+            {
+                teglalapok[i] = new Teglalap(veletlen.Next(2, 11));
+            }
+
+
+
+            for (int i = 0; i < teglalapok.Length; i++)
+            {
+                Console.WriteLine(teglalapok[i]);
+            }
+
+
+
+            int minimalisTeruletuIndexe = 0;
+
+            for (int i = 0; i < teglalapok.Length; i++)
+            {
+                if (teglalapok[minimalisTeruletuIndexe].NagyobbTeruletMint(teglalapok[i]))
+                {
+                    minimalisTeruletuIndexe = i;
+                }
+            }
+
+            Console.WriteLine(minimalisTeruletuIndexe);
+            Console.WriteLine(teglalapok[minimalisTeruletuIndexe]);
+
+
+
+            Teglalap ujTeglalap = new Teglalap(5, 6);
+            int darab = 0;
+
+            for (int i = 0; i < teglalapok.Length; i++)
+            {
+
+                if (teglalapok[i].NagyobbTeruletMint(ujTeglalap))
+                {
+                    darab++;
+                }
+
+
+            }
+
+            Console.WriteLine(darab);
+
+
+
+            int elsoEgyezoIndexe = -1;
+
+
+
+            for (int i = 0; i < teglalapok.Length; i++)
+            {
+                if (ujTeglalap.OldalakMegegyeznek(teglalapok[i]))
+                {
+                    elsoEgyezoIndexe = -1;
+                    break;
+                }
+            }
+
+
+            if (elsoEgyezoIndexe>-1)
+            {
+                Console.WriteLine(elsoEgyezoIndexe);
+            }
+
+            else
+            {
+                Console.WriteLine("nincs egyező");
+            }
+
+
+            Console.ReadKey();
+
+
+        }
+    }
+}
+
